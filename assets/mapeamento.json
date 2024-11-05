@@ -1,0 +1,240 @@
+{
+    "TB_ACAO": {
+        "colunas": {
+            "Código Ação": "ACA_CODIGO",
+            "Ação": "ACA_NOME"
+        },
+        "campo_unico": "ACA_CODIGO",
+        "id_coluna": "ACA_ID"
+    },
+    "TB_AUTOR_EMENDA": {
+        "colunas": {
+            "Autor Emenda": "AEM_NOME"
+        },
+        "campo_unico": "AEM_NOME",
+        "id_coluna": "AEM_ID"
+    },
+    "TB_CATEGORIA_DESPESA": {
+        "colunas": {
+            "Código Categoria de Despesa": "CDE_CODIGO",
+            "Categoria de Despesa": "CDE_NOME"
+        },
+        "campo_unico": "CDE_CODIGO",
+        "id_coluna": "CDE_ID"
+    },
+    "TB_DOCUMENTO": {
+        "colunas": {
+            "Código Tipo Documento": "DOC_CODTIPO",
+            "Tipo Documento": "DOC_TIPO"
+        },
+        "campo_unico": "DOC_CODTIPO",
+        "id_coluna": "DOC_ID"
+    },
+    "TB_ELEMENTO_DESPESA": {
+        "colunas": {
+            "Código Elemento de Despesa": "EDE_CODIGO",
+            "Elemento de Despesa": "EDE_NOME"
+        },
+        "campo_unico": "EDE_CODIGO",
+        "id_coluna": "EDE_ID"
+    },
+    "TB_ESFERA_ORCAMENTARIA": {
+        "colunas": {
+            "Código Esfera Orçamentária": "EOR_CODIGO",
+            "Esfera Orçamentária": "EOR_DESCRICAO"
+        },
+        "campo_unico": "EOR_CODIGO",
+        "id_coluna": "EOR_ID"
+    },
+    "TB_FAVORECIDO": {
+        "colunas": {
+            "Código Favorecido": "FAV_CODIGO",
+            "Favorecido": "FAV_NOME"
+        },
+        "campo_unico": "FAV_CODIGO",
+        "id_coluna": "FAV_ID"
+    },
+    "TB_FONTE_RECURSO": {
+        "colunas": {
+            "Código Fonte Recurso": "FRE_CODIGO",
+            "Fonte Recurso": "FRE_DESCRICAO"
+        },
+        "campo_unico": "FRE_CODIGO",
+        "id_coluna": "FRE_ID"
+    },
+    "TB_FUNCAO": {
+        "colunas": {
+            "Código Função": "FUN_CODIGO",
+            "Função": "FUN_DESCRICAO"
+        },
+        "campo_unico": "FUN_CODIGO",
+        "id_coluna": "FUN_ID"
+    },
+    "TB_GESTAO": {
+        "colunas": {
+            "Código Gestão": "GES_CODIGO",
+            "Gestão": "GES_NOME"
+        },
+        "campo_unico": "GES_CODIGO",
+        "id_coluna": "GES_ID"
+    },
+    "TB_GRUPO_DESPESA": {
+        "colunas": {
+            "Código Grupo de Despesa": "GDE_CODIGO",
+            "Grupo de Despesa": "GDE_NOME"
+        },
+        "campo_unico": "GDE_CODIGO",
+        "id_coluna": "GDE_ID"
+    },
+    "TB_GRUPO_FONTE_RECURSO": {
+        "colunas": {
+            "Código Grupo Fonte Recurso": "GFR_CODIGO",
+            "Grupo Fonte Recurso": "GFR_DESCRICAO"
+        },
+        "campo_unico": "GFR_CODIGO",
+        "id_coluna": "GFR_ID"
+    },
+    "TB_LINGUAGEM_CIDADA": {
+        "colunas": {
+            "Linguagem Cidadã": "LCI_DESCRICAO"
+        },
+        "campo_unico": "LCI_DESCRICAO",
+        "id_coluna": "LCI_ID"
+    },
+    "TB_MODALIDADE": {
+        "colunas": {
+            "Código Modalidade de Aplicação": "MOD_CODIGO",
+            "Modalidade de Aplicação": "MOD_NOME"
+        },
+        "campo_unico": "MOD_CODIGO",
+        "id_coluna": "MOD_ID"
+    },
+    "TB_ORGAO": {
+        "colunas": {
+            "Código Órgão": "ORG_CODIGO",
+            "Órgão": "ORG_NOME"
+        },
+        "campo_unico": "ORG_CODIGO",
+        "id_coluna": "ORG_ID"
+    },
+    "TB_ORGAO#2": {
+        "colunas": {
+            "Código Órgão Superior": "ORG_CODIGO",
+            "Órgão Superior": "ORG_NOME"
+        },
+        "campo_unico": "ORG_CODIGO",
+        "id_coluna": "ORG_ID"
+    },
+    "TB_PLANO_ORCAMENTARIO": {
+        "colunas": {
+            "Código Plano Orçamentário": "POR_CODIGO",
+            "Plano Orçamentário": "POR_DESCRICAO"
+        },
+        "campo_unico": "POR_CODIGO",
+        "id_coluna": "POR_ID"
+    },
+    "TB_PROGRAMA": {
+        "colunas": {
+            "Código Programa": "PRO_CODIGO",
+            "Programa": "PRO_NOME"
+        },
+        "campo_unico": "PRO_CODIGO",
+        "id_coluna": "PRO_ID"
+    },
+    "TB_PROGRAMA_GOVERNO": {
+        "colunas": {
+            "Código Programa Governo": "PGO_CODIGO",
+            "Nome Programa Governo": "PGO_NOME"
+        },
+        "campo_unico": "PGO_CODIGO",
+        "id_coluna": "PGO_ID"
+    },
+    "TB_SUB_FUNCAO": {
+        "colunas": {
+            "Código SubFunção": "SFU_CODIGO",
+            "SubFunção": "SFU_DESCRICAO"
+        },
+        "campo_unico": "SFU_CODIGO",
+        "id_coluna": "SFU_ID"
+    },
+    "TB_SUBTITULO": {
+        "colunas": {
+            "Código Subtítulo (Localizador)": "SUB_CODIGO",
+            "Subtítulo (Localizador)": "SUB_DESCRICAO"
+        },
+        "campo_unico": "SUB_CODIGO",
+        "id_coluna": "SUB_ID"
+    },
+    "TB_TIPO_CREDITO": {
+        "colunas": {
+            "Código Tipo Crédito": "TCR_CODIGO",
+            "Tipo Crédito": "TCR_DESCRICAO"
+        },
+        "campo_unico": "TCR_CODIGO",
+        "id_coluna": "TCR_ID"
+    },
+    "TB_UNIDADE_GESTORA": {
+        "colunas": {
+            "Código Unidade Gestora": "UGE_CODIGO",
+            "Unidade Gestora": "UGE_NOME"
+        },
+        "campo_unico": "UGE_CODIGO",
+        "id_coluna": "UGE_ID"
+    },
+    "TB_UNIDADE_ORCAMENTARIA": {
+        "colunas": {
+            "Código Unidade Orçamentária": "UOR_CODIGO",
+            "Unidade Orçamentária": "UOR_DESCRICAO"
+        },
+        "campo_unico": "UOR_CODIGO",
+        "id_coluna": "UOR_ID"
+    },
+    "TB_EMPENHO": {
+        "colunas": {
+            "Código Empenho": "EMP_CODIGO",
+            "Código Empenho Resumido": "EMP_CODRESUMIDO",
+            "Data Emissão": "EMP_DATA_EMISSAO",
+            "Tipo Empenho": "EMP_TIPO",
+            "Espécie Empenho": "EMP_ESPECIE",
+            "Observação": "EMP_OBSERVACAO",
+            "Processo": "EMP_PROCESSO",
+            "Modalidade de Licitação": "EMP_MODALIDADE_LICITACAO",
+            "Inciso": "EMP_INCISO",
+            "Amparo": "EMP_AMPARO",
+            "Referência de Dispensa ou Inexigibilidade": "EMP_REF_DISP_INEX",
+            "Código Convênio": "EMP_CODIGO_CONVENIO",
+            "Contrato de Repasse / Termo de Parceria / Outros": "EMP_CONTRATO",
+            "Valor Original do Empenho": "EMP_VALOR_ORIGINAL",
+            "Valor do Empenho Convertido pra R$": "EMP_VALOR_CONVERTIDO",
+            "Valor Utilizado na Conversão": "EMP_VALOR_CONVERSAO"
+        },
+        "fks": {
+            "EMP_DOCID": "TB_DOCUMENTO",
+            "EMP_ORGSUPID": "TB_ORGAO#2",
+            "EMP_ORGID": "TB_ORGAO",
+            "EMP_UGEID": "TB_UNIDADE_GESTORA",
+            "EMP_GESID": "TB_GESTAO",
+            "EMP_FAVID": "TB_FAVORECIDO",
+            "EMP_EORID": "TB_ESFERA_ORCAMENTARIA",
+            "EMP_TCRID": "TB_TIPO_CREDITO",
+            "EMP_GFRID": "TB_GRUPO_FONTE_RECURSO",
+            "EMP_FREID": "TB_FONTE_RECURSO",
+            "EMP_UORID": "TB_UNIDADE_ORCAMENTARIA",
+            "EMP_FUNID": "TB_FUNCAO",
+            "EMP_SFUID": "TB_SUB_FUNCAO",
+            "EMP_PROID": "TB_PROGRAMA",
+            "EMP_ACAID": "TB_ACAO",
+            "EMP_LCIID": "TB_LINGUAGEM_CIDADA",
+            "EMP_SUBID": "TB_SUBTITULO",
+            "EMP_PORID": "TB_PLANO_ORCAMENTARIO",
+            "EMP_PGOID": "TB_PROGRAMA_GOVERNO",
+            "EMP_AEMID": "TB_AUTOR_EMENDA",
+            "EMP_CDEID": "TB_CATEGORIA_DESPESA",
+            "EMP_GDEID": "TB_GRUPO_DESPESA",
+            "EMP_MODID": "TB_MODALIDADE",
+            "EMP_EDEID": "TB_ELEMENTO_DESPESA"
+        },
+        "campo_unico": "EMP_CODIGO",
+        "id_coluna": "EMP_ID"
+    }
+}
