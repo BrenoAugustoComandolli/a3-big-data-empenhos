@@ -2,3 +2,7 @@ mysql-connector-python
 python-dotenv
 pandas
 openpyxl
+plotly
+pymysql
+dash
+dash-bootstrap-components
