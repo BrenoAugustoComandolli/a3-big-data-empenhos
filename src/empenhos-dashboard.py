@@ -16,7 +16,7 @@ class EmpenhosDashboard:
         """
         query = f"""
             SELECT
-                EMP.EMP_VALOR_ORIGINAL, 
+                EMP.EMP_VALOR_CONVERTIDO, 
                 ORG.ORG_NOME, 
                 FAV.FAV_NOME, 
                 EMP.EMP_DATA_EMISSAO, 
@@ -39,12 +39,12 @@ class EmpenhosDashboard:
         """
         Gráfico de barras mostrando os maiores favorecidos dos empenhos.
         """
-        df['EMP_VALOR_ORIGINAL'] = pd.to_numeric(df['EMP_VALOR_ORIGINAL'], errors='coerce')
-        favorecidos_df = df.groupby('FAV_NOME')['EMP_VALOR_ORIGINAL'].sum().reset_index()
-        favorecidos_df = favorecidos_df.nlargest(n_favorecido, 'EMP_VALOR_ORIGINAL')
-        fig = px.bar(favorecidos_df, x='FAV_NOME', y='EMP_VALOR_ORIGINAL', 
+        df['EMP_VALOR_CONVERTIDO'] = pd.to_numeric(df['EMP_VALOR_CONVERTIDO'], errors='coerce')
+        favorecidos_df = df.groupby('FAV_NOME')['EMP_VALOR_CONVERTIDO'].sum().reset_index()
+        favorecidos_df = favorecidos_df.nlargest(n_favorecido, 'EMP_VALOR_CONVERTIDO')
+        fig = px.bar(favorecidos_df, x='FAV_NOME', y='EMP_VALOR_CONVERTIDO', 
                      title=f"Top {n_favorecido} Favorecidos pelos Empenhos",
-                     labels={"FAV_NOME": "Favorecido", "EMP_VALOR_ORIGINAL": "Valor Empenhado (R$)"})
+                     labels={"FAV_NOME": "Favorecido", "EMP_VALOR_CONVERTIDO": "Valor Empenhado (R$)"})
         fig.update_layout(xaxis_title="Favorecido", yaxis_title="Valor Empenhado (R$)")
         return fig
 
@@ -52,10 +52,10 @@ class EmpenhosDashboard:
         """
         Gráfico de barras mostrando a distribuição dos valores empenhados por categoria de despesa.
         """
-        categoria_df = df.groupby('CDE_NOME')['EMP_VALOR_ORIGINAL'].sum().reset_index()
-        fig = px.bar(categoria_df, x='CDE_NOME', y='EMP_VALOR_ORIGINAL', 
+        categoria_df = df.groupby('CDE_NOME')['EMP_VALOR_CONVERTIDO'].sum().reset_index()
+        fig = px.bar(categoria_df, x='CDE_NOME', y='EMP_VALOR_CONVERTIDO', 
                      title="Distribuição dos Empenhos por Categoria de Despesa",
-                     labels={"CDE_NOME": "Categoria de Despesa", "EMP_VALOR_ORIGINAL": "Valor Empenhado (R$)"})
+                     labels={"CDE_NOME": "Categoria de Despesa", "EMP_VALOR_CONVERTIDO": "Valor Empenhado (R$)"})
         fig.update_layout(xaxis_title="Categoria de Despesa", yaxis_title="Valor Empenhado (R$)")
         return fig
 
@@ -64,11 +64,11 @@ class EmpenhosDashboard:
         Gráfico de barras comparando os valores empenhados por órgãos governamentais,
         limitando o número de órgãos a serem exibidos com base na seleção do usuário.
         """
-        orgaos_df = df.groupby('ORG_NOME')['EMP_VALOR_ORIGINAL'].sum().reset_index()
-        orgaos_df = orgaos_df.nlargest(n_orgao, 'EMP_VALOR_ORIGINAL')
-        fig = px.bar(orgaos_df, x='ORG_NOME', y='EMP_VALOR_ORIGINAL', 
+        orgaos_df = df.groupby('ORG_NOME')['EMP_VALOR_CONVERTIDO'].sum().reset_index()
+        orgaos_df = orgaos_df.nlargest(n_orgao, 'EMP_VALOR_CONVERTIDO')
+        fig = px.bar(orgaos_df, x='ORG_NOME', y='EMP_VALOR_CONVERTIDO', 
                     title=f"Comparação dos {n_orgao} maiores Empenhos por Órgãos Governamentais",
-                    labels={"ORG_NOME": "Órgão Governamental", "EMP_VALOR_ORIGINAL": "Valor Empenhado (R$)"})
+                    labels={"ORG_NOME": "Órgão Governamental", "EMP_VALOR_CONVERTIDO": "Valor Empenhado (R$)"})
         fig.update_layout(xaxis_title="Órgão Governamental", yaxis_title="Valor Empenhado (R$)")
         return fig
 
@@ -76,10 +76,10 @@ class EmpenhosDashboard:
         """
         Gráfico de linha mostrando a evolução dos valores empenhados ao longo do período selecionado.
         """
-        empenhos_df = df.groupby('EMP_DATA_EMISSAO')['EMP_VALOR_ORIGINAL'].sum().reset_index()
-        fig = px.line(empenhos_df, x='EMP_DATA_EMISSAO', y='EMP_VALOR_ORIGINAL', 
+        empenhos_df = df.groupby('EMP_DATA_EMISSAO')['EMP_VALOR_CONVERTIDO'].sum().reset_index()
+        fig = px.line(empenhos_df, x='EMP_DATA_EMISSAO', y='EMP_VALOR_CONVERTIDO', 
                       title="Evolução dos Empenhos ao Longo do Tempo",
-                      labels={"EMP_DATA_EMISSAO": "Data de Emissão", "EMP_VALOR_ORIGINAL": "Valor Empenhado (R$)"})
+                      labels={"EMP_DATA_EMISSAO": "Data de Emissão", "EMP_VALOR_CONVERTIDO": "Valor Empenhado (R$)"})
         fig.update_layout(xaxis_title="Data de Emissão", yaxis_title="Valor Empenhado (R$)")
         return fig
 
