@@ -93,11 +93,12 @@ class EmpenhosDashboard:
         dropdown_options_orgaos = [{'label': f'{i} primeiros órgãos', 'value': i} for i in range(1, 11)]
         dropdown_options_orgaos += [{'label': f'{i} primeiros órgãos', 'value': i} for i in range(20, 60, 10)]
         
-        # Gerar a lista de opções do dropdown para favorecidos (aplicando a mesma lógica)
+        # Gerar a lista de opções do dropdown para favorecidos
         dropdown_options_favorecidos = [{'label': f'{i} primeiros favorecidos', 'value': i} for i in range(1, 11)]
         dropdown_options_favorecidos += [{'label': f'{i} primeiros favorecidos', 'value': i} for i in range(20, 60, 10)]
 
         app.layout = html.Div(children=[
+
             html.H1(children='Dashboard de Análise dos Empenhos do Governo Federal', style={'text-align': 'center'}),
 
             dcc.DatePickerRange(
@@ -112,6 +113,23 @@ class EmpenhosDashboard:
             html.Div(id='output-container-date-picker-range', style={'margin-top': '20px', 'text-align': 'center'}),
 
             html.Div([
+                html.H3("Total de Empenho no Período", style={'text-align': 'center'}),
+                html.Div(id='total-empenho-card', 
+                         style={
+                             'display': 'flex', 
+                             'justify-content': 'center', 
+                             'align-items': 'center', 
+                             'height': '100px', 
+                             'background-color': '#f5f5f5', 
+                             'border-radius': '10px', 
+                             'width': '100%', 
+                             'font-size': '24px', 
+                             'font-weight': 'bold',
+                             'color': '#2c3e50'
+                         })
+            ], style={'margin-top': '20px', 'margin-bottom': '20px'}),
+
+            html.Div([  
                 html.Label('Quantidade de favorecidos a serem exibidos:'),
                 dcc.Dropdown(
                     id='favorecido-dropdown',
@@ -120,7 +138,7 @@ class EmpenhosDashboard:
                     clearable=False,
                     style={'width': '40%'}
                 )
-            ], style={'text-align': 'rigth', 'margin-bottom': '20px'}),
+            ], style={'text-align': 'left', 'margin-bottom': '20px'}),
 
             html.Div([
                 dcc.Graph(id='grafico-categorias', style={'width': '48%', 'display': 'inline-block'}),
@@ -146,35 +164,38 @@ class EmpenhosDashboard:
 
         @app.callback(
             [
+                Output('total-empenho-card', 'children'),
                 Output('grafico-categorias', 'figure'),
                 Output('grafico-favorecidos', 'figure'),
                 Output('grafico-orgaos', 'figure'),
-                Output('grafico-evolucao', 'figure')
+                Output('grafico-evolucao', 'figure'),
             ],
             [
                 Input('date-picker-range', 'start_date'),
                 Input('date-picker-range', 'end_date'),
+                Input('favorecido-dropdown', 'value'),
                 Input('orgao-dropdown', 'value'),
-                Input('favorecido-dropdown', 'value')
             ]
         )
-        def update_graphs(start_date, end_date, n_orgao, n_favorecido):
+        def atualizar_dashboard(start_date, end_date, n_favorecido, n_orgao):
             df = self.get_data(start_date, end_date)
+
+            total_empenho = df['EMP_VALOR_CONVERTIDO'].sum()
+            total_empenho_formatado = f"R$ {total_empenho:,.2f}".replace(',', 'X').replace('.', ',').replace('X', '.')
 
             fig_categorias = self.plot_categorias(df)
             fig_favorecidos = self.plot_maiores_favorecidos(df, n_favorecido)
             fig_orgaos = self.plot_comparacao_orgaos(df, n_orgao)
             fig_evolucao = self.plot_evolucao_empenhos(df)
 
-            return fig_categorias, fig_favorecidos, fig_orgaos, fig_evolucao
+            return total_empenho_formatado, fig_categorias, fig_favorecidos, fig_orgaos, fig_evolucao
 
-        app.run_server(debug=True)
+        return app
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     connection = create_connection()
 
-    if connection:
-        dashboard = EmpenhosDashboard(connection)
-        dashboard.gerar_dashboard()
+    dashboard = EmpenhosDashboard(connection)
 
-        connection.close()
+    app = dashboard.gerar_dashboard()
+    app.run_server(debug=True)
